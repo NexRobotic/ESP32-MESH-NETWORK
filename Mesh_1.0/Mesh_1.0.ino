@@ -13,7 +13,7 @@ TO DO
 I need to develop a message structure like
                         {sender addr + reciever addr + message + TTL(Time To live)}
 so that i can announce this message into the network and it will hopefully went to its owner. 
-
+ 
 */
 
 
@@ -21,7 +21,7 @@ so that i can announce this message into the network and it will hopefully went 
 #include <WiFi.h>
 
 // Define a static name for this ESP32 node
-const char staticName[] = "Mumbai";
+const char staticName[] = "Delhi";
 
 // Structure to send/receive node data (MAC address + Name)
 typedef struct struct_message {
@@ -59,7 +59,7 @@ void sendAnnouncement() {
 }
 
 // Function to broadcast node table to all nodes
-void broadcastNodeTable() {
+void broadcastNodeTable() { 
   for (int i = 0; i < nodeCount; i++) {
     esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&nodeTable[i], sizeof(nodeTable[i]));
     if (result == ESP_OK) {
